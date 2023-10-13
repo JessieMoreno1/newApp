@@ -10,6 +10,7 @@ export default class SchoolEvents extends Component {
         }
     }
     
+    // checks if json loaded
     componentDidMount() {
         fetch('https://apps.pasadena.edu/wp-content/uploads/all-events-feed.json?ver=32')
         .then((response) => response.json())
@@ -21,6 +22,7 @@ export default class SchoolEvents extends Component {
         })
     }
 
+    // this is the alert itself, to change the alert prompt change the alert function
     _renderItem = ({item, index}) => {
         return (
             <TouchableOpacity onPress={() => alert( "\n" +item.title + "\n" + "\n" +  item.event_excerpt + "\n" + "\n" + item.start)}>
@@ -35,6 +37,7 @@ export default class SchoolEvents extends Component {
             </TouchableOpacity>
         )
     }
+    // this renders the app, if not loading , its a loading animation 
     render() {
         let {container} = styles
         let {dataSource, isLoading} = this.state
@@ -45,6 +48,7 @@ export default class SchoolEvents extends Component {
                 </View>  
             )
         }
+        // loads the list 
         else {
             return (
                 <View style={styles.mainView}>
@@ -59,15 +63,12 @@ export default class SchoolEvents extends Component {
                         />
                     </View>
                 </View>
-                
             )
-        }
-        
+        } 
     }
-
-
 }
 
+// styles the page
 const styles = StyleSheet.create({
     mainView: {
         marginTop: 20,
