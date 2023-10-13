@@ -23,7 +23,7 @@ export default class SchoolEvents extends Component {
 
     _renderItem = ({item, index}) => {
         return (
-            <TouchableOpacity onPress={() => alert(item.event_excerpt)}>
+            <TouchableOpacity onPress={() => alert( "\n" +item.title + "\n" + "\n" +  item.event_excerpt + "\n" + "\n" + item.start)}>
                 <View style={styles.item}>
                     <Image 
                         source={{uri: item.featured_image}}
