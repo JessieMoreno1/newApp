@@ -25,8 +25,12 @@ export default class SchoolEvents extends Component {
         return (
             <TouchableOpacity onPress={() => alert(item.event_excerpt)}>
                 <View style={styles.item}>
-                    <Text>{item.start + ": " + item.title}</Text>
-                    {/* <Image style={styles.ImageStyle} source={item.featured_image}/> */}
+                    <Image 
+                        source={{uri: item.featured_image}}
+                        style={{height: 200, width: '100%'}}
+
+                    />
+                    <Text style={styles.eventTitle} >{item.title}</Text>
                 </View>
             </TouchableOpacity>
         )
@@ -98,10 +102,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginVertical: 10,
         borderRadius: 10,
+        
     },
     ImageStyle : {
         width: '50%',
         resizeMode: 'contain',
+    },
+    eventTitle: {
+        fontWeight: 'bold',
+        textAlign: 'center',
     }
 })
 
